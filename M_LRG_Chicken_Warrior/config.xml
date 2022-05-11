@@ -1,0 +1,22 @@
+<config xmlns='http://schema.bluehands.de/character-config' version='1.0'>
+    <param name='name' value='Chicken Warrior'/>
+    <param name='width' value='200'/>
+    <param name='height' value='200'/>
+    <param name='defaultsequence' value='idle'/>
+    <sequence group="idle" name="idle" type="status" probability="1000" in="standard" out="standard"><animation src="idle.webp" duration="67"/></sequence>
+    <sequence group="idle" name="idle_confused" type="status" probability="10" in="standard" out="standard"><animation src="idle_confused.webp" duration="7000"/></sequence>
+    <sequence group="idle" name="idle_dustOffHands" type="status" probability="5" in="standard" out="standard"><animation src="idle_dustOffHands.webp" duration="3333"/></sequence>
+    <sequence group="idle" name="idle_dustOffshoulders" type="status" probability="5" in="standard" out="standard"><animation src="idle_dustOffshoulders.webp" duration="3800"/></sequence>
+    <sequence group="moveleft" name="moveleft" type="basic" probability="1000" in="moveleft" out="moveleft"><animation src="moveleft.webp" dx="-125" duration="1000"/></sequence>
+    <sequence group="moveright" name="moveright" type="basic" probability="1000" in="moveright" out="moveright"><animation src="moveright.webp" dx="125" duration="1000"/></sequence>
+    <sequence group="wave" name="wave_saluteWave" type="emote" probability="1000" in="standard" out="standard"><animation src="wave_saluteWave.webp" duration="1867"/></sequence>
+    <sequence group="dance" name="dance_funktime" type="emote" probability="250" in="standard" out="standard"><animation src="dance_funktime.webp" duration="8667"/></sequence>
+    <sequence group="cheer" name="cheer_cyclone" type="emote" probability="1000" in="standard" out="standard"><animation src="cheer_cyclone.webp" duration="1800"/></sequence>
+    <sequence group="deny" name="deny_strong" type="emote" probability="1000" in="standard" out="standard"><animation src="deny_strong.webp" duration="2467"/></sequence>
+    <sequence group="agree" name="agree_headNod" type="emote" probability="1000" in="standard" out="standard"><animation src="agree_headNod.webp" duration="1533"/></sequence>
+    <sequence group="kiss" name="kiss_spinLevitate" type="emote" probability="1000" in="standard" out="standard"><animation src="kiss_spinLevitate.webp" duration="5467"/></sequence>
+    <sequence group="laugh" name="laugh" type="emote" probability="1000" in="standard" out="standard"><animation src="laugh.webp" duration="9200"/></sequence>
+    <sequence group="angry" name="angry_stomp" type="emote" probability="1000" in="standard" out="standard"><animation src="angry_stomp.webp" duration="3200"/></sequence>
+    <sequence group="cry" name="cry" type="emote" probability="1000" in="standard" out="standard"><animation src="cry.webp" duration="9067"/></sequence>
+    <sequence group="clap" name="clap" type="emote" probability="1000" in="standard" out="standard"><animation src="clap.webp" duration="1533"/></sequence>
+</config>

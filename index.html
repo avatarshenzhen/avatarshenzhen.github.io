@@ -1,0 +1,440 @@
+<html>
+    <head>
+        <title>Shenzhen Collection</title>
+        <style>
+            html {
+                font-family: sans-serif;
+                font-size: 14px;
+                background: #F5F5F5;
+                color: #000000;
+            }
+            body * {
+                font-size: inherit;
+                margin: 0;
+            }
+            h1 {
+                margin: 1rem 1rem 0.8rem;
+                font-size: 2rem;
+            }
+            br {
+                display: block;
+                height: 1rem;
+                content: "";
+            }
+
+            .optionLabel {
+                display: inline-block;
+                padding: 0 0.25rem 0 1rem;
+            }
+            input[type=radio] {
+                display: none;
+            }
+            label {
+                display: inline-block;
+                padding: 0.25rem 0.5rem;
+                border: 2px solid;
+                border-color: #FFFFFF #000000 #000000 #FFFFFF;
+            }
+            input[type=radio]:checked + label {
+                border-color: #000000 #FFFFFF #FFFFFF #000000;
+            }
+
+            header {
+                position: fixed;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                border-bottom: 1px solid #00000020;
+                backdrop-filter: blur(6px);
+                background-color: #F5F5F560;
+                padding-bottom: 1rem;
+                width: 100%;
+            }
+            #status {
+            }
+            #tools {
+                position: fixed;
+                z-index: 3;
+                top: 0;
+                right: 0;
+                min-width: 2rem;
+                min-height: 2rem;
+            }
+            #tools > div {
+                display: none;
+                padding: 1rem;
+            }
+            #colorWhite, label[for=colorWhite],
+            #colorWhite:checked ~ .avatars {
+                background: #FFFFFF;
+                color: #000000;
+            }
+            #colorWhitesmoke, label[for=colorWhitesmoke],
+            #colorWhitesmoke:checked ~ .avatars {
+                background: #F5F5F5;
+                color: #000000;
+            }
+            #colorGray75, label[for=colorGray75],
+            #colorGray75:checked ~ .avatars {
+                background: rgb(75%, 75%, 75%);
+                color: #000000;
+            }
+            #colorGray50, label[for=colorGray50],
+            #colorGray50:checked ~ .avatars {
+                background: rgb(50%, 50%, 50%);
+                color: #FFFFFF;
+            }
+            #colorGray25, label[for=colorGray25],
+            #colorGray25:checked ~ .avatars {
+                background: rgb(25%, 25%, 25%);
+                color: #FFFFFF;
+            }
+            #colorBlack, label[for=colorBlack],
+            #colorBlack:checked ~ .avatars {
+                background: #000000;
+                color: #FFFFFF;
+            }
+
+            .avatars {
+                position: relative;
+                margin-top: 3rem;
+            }
+            .avatars {
+                display: flex;
+                padding: 3.5rem 0 calc(208px + 2rem);
+                flex-flow: row wrap;
+                gap: 1.5rem 0;
+            }
+            .avatars > button {
+                border: 0;
+                background: transparent;
+                font-size: inherit;
+                font-weight: inherit;
+                text-align: center;
+                color: inherit;
+            }
+            .avatars > button > img {
+                filter: drop-shadow(1px 1px 2px #707070);
+                margin-bottom: 0.5rem;
+            }
+            .avatars.enabled > button:hover > img {
+                filter: drop-shadow(1px 2px 3px #505050) drop-shadow(0px 0px 6px #ABC115);
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                border-top: 1px solid #00000020;
+                backdrop-filter: blur(6px);
+                background-color: #F5F5F560;
+                width: 100%;
+                height: 206px;
+            }
+        </style>
+        <script>(() => {
+
+            class AvatarActivator {
+
+                toolsOpen = false;
+                baseUrl = '';
+                msgIdNext = 1;
+                msgResponseHandlers = {};
+                weblinReady = false;
+
+                constructor() {
+                    this.baseUrl = this.getBaseUrl();
+                }
+
+                init() {
+                    window.addEventListener('message', e => this.onMsgResponse(e));
+                    if (document.readyState !== "loading") {
+                        this.onDocReady();
+                    } else {
+                        document.addEventListener("DOMContentLoaded", () => this.onDocReady());
+                    }
+                }
+
+                onDocReady() {
+                    document.getElementById('tools').onclick = e => this.onToolBoxClick(e);
+                    document.querySelectorAll('label').forEach(btn => {
+                        btn.onclick = e => this.onColorBtnClick(btn, e);
+                    });
+                    document.querySelectorAll('.avatars button').forEach(btn => {
+                        btn.onclick = e => this.onAvatarBtnClick(btn, e);
+                    });
+                    if (window.location.protocol.startsWith('http')) {
+                        (async () => {
+                            for (let i = 0; i < 10; i++) {
+                                try {
+                                    await this.askWeblinExtension({
+                                        type: 'Client.GetApi',
+                                    }, 500);
+                                    this.weblinReady = true;
+                                    document.querySelectorAll('.avatars')[0].classList.add('enabled');
+                                    this.getStatusElem().innerText = 'Weblin Client found. Click an avatar to get it.';
+                                    return;
+                                } catch (error) {
+                                    console.log({error: error});
+                                }
+                            }
+                            this.getStatusElem().innerText = 'Weblin Client not found!';
+                        })().catch(error => {});
+                    } else {
+                        this.getStatusElem().innerText = 'Page is loaded offline!';
+                    }
+                }
+
+                onToolBoxClick(e) {
+                    if (false) {
+                    } else if (!e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
+                        document.querySelectorAll('#tools > div')[0].style.display = this.toolsOpen ? 'none' : 'block';
+                        this.toolsOpen = !this.toolsOpen;
+                    }
+                }
+                
+                onColorBtnClick(btn, e) {
+                    if (false) {
+                    } else if (!e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
+                        let bg = btn.getAttribute('data-bg');
+                        let fg = btn.getAttribute('data-fg');
+                        let elem = document.documentElement;
+                        elem.style.backgroundColor = bg;
+                        elem.style.color = fg;
+                        elem = document.getElementsByTagName('header')[0];
+                        elem.style.backgroundColor = bg + '60';
+                        elem.style.borderColor = fg + '20';
+                        elem = document.getElementsByTagName('footer')[0];
+                        elem.style.backgroundColor = bg + '60';
+                        elem.style.borderColor = fg + '20';
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                onAvatarBtnClick(btn, e) {
+                    if (false) {
+                    } else if (this.weblinReady && !e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
+                        this.doGetAvatar(btn);
+                    } else if (!e.altKey && e.ctrlKey && !e.shiftKey && !e.metaKey) {
+                        this.doOpenAvatarSheet(btn);
+                    }
+                }
+                
+                doGetAvatar(btn) {
+                    let label = btn.getAttribute('data-label');
+                    let dirName = btn.getAttribute('data-dir');
+                    let idleName = btn.getAttribute('data-idle');
+                    (async () => {
+                        let dirUrl = this.baseUrl + '/' + dirName;
+                        await this.askWeblinExtension({
+                            type: 'Client.CreateAvatar',
+                            provider: 'n3q',
+                            auth: 'SCb6Plsm2bpJYNB23W1q',
+                            template: 'Avatar',
+                            label: label,
+                            imageUrl: dirUrl + '/' + idleName + '.webp',
+                            width: 94,
+                            height: 94,
+                            avatarAnimationsUrl: dirUrl + '/config.xml',
+                        });
+                        // Success message is displayed by Weblin.
+                    })().catch(error => {
+                        console.log({error: error});
+                        // Error is displayed by Weblin.
+                    });
+                }
+                
+                doOpenAvatarSheet(btn) {
+                    let dirName = btn.getAttribute('data-dir');
+                    let sheetUrl = this.baseUrl + '/' + dirName + '/index.html';
+                    window.open(sheetUrl, 'avatar ' + dirName);
+                }
+                
+                async askWeblinExtension(msg, timeout=5000) {
+                    return new Promise((resolve, reject) => {
+                        msg.id = '' + (this.msgIdNext++);
+                        msg.mode = 'page';
+                        msg.x7ft76zst7g_pageApi = true;
+                        this.msgResponseHandlers[msg.id] = (response) => {
+                            if (response.ok) {
+                                resolve(response);
+                            } else {
+                                let error = new Error('Msg processing failed!');
+                                error.msg = msg;
+                                error.response = response;
+                                reject(error);
+                            }
+                        };
+                        window.setTimeout(() => this.onMsgTimeout(msg.id, timeout), timeout);
+                        window.postMessage(msg, '*');
+                    });
+                }
+
+                onMsgTimeout(msgId, timeout) {
+                    let handler = this.msgResponseHandlers[msgId] ?? null;
+                    if (handler) {
+                        delete this.msgResponseHandlers[msgId];
+                        handler({
+                            ok: false,
+                            errorMsg: 'Page-side timeout while waiting for response!',
+                            timeout: timeout,
+                        });
+                    }
+                }
+
+                onMsgResponse(e) {
+                    let response = e.data;
+                    let msgId = '' + response.id;
+                    let handler = this.msgResponseHandlers[msgId] ?? null;
+                    if (handler && response.df7d86ozgh76_2pageApi) {
+                        delete this.msgResponseHandlers[msgId];
+                        console.log({response: response});
+                        handler(response);
+                    }
+                }
+
+                getStatusElem() {
+                    return document.getElementById('status');
+                }
+
+                getBaseUrl() {
+                    let fullUrl = window.location.href;
+                    let parts = fullUrl.match(/^([^?#]+)\/[^/]*([?#]|$)/i);
+                    let baseUrl = parts[1];
+                    return baseUrl;
+                }
+
+            }
+
+            new AvatarActivator().init();
+        })();</script>
+    </head>
+    <body>
+        <header>
+            <h1>Shenzhen Collection</h1>
+            <span class="optionLabel">Status:</span>
+            <span id="status">Detecting Weblin extension...</span>
+        </header>
+        <div class="avatars">
+            <button data-label="Alchemy" data-dir="F_MED_Alchemy" data-idle="idle"><img src="F_MED_Alchemy/idle.webp"/><br>Alchemy</button>
+            <button data-label="Ancient Gladiator" data-dir="F_MED_Ancient_Gladiator" data-idle="idle"><img src="F_MED_Ancient_Gladiator/idle.webp"/><br>Ancient Gladiator</button>
+            <button data-label="Angel" data-dir="F_MED_Angel" data-idle="idle"><img src="F_MED_Angel/idle.webp"/><br>Angel</button>
+            <button data-label="Assassin Suit" data-dir="F_MED_AssassinSuit" data-idle="idle"><img src="F_MED_AssassinSuit/idle.webp"/><br>Assassin Suit</button>
+            <button data-label="Assemble R" data-dir="F_MED_Assemble_R" data-idle="idle"><img src="F_MED_Assemble_R/idle.webp"/><br>Assemble R</button>
+            <button data-label="Bane" data-dir="F_MED_Bane" data-idle="idle"><img src="F_MED_Bane/idle.webp"/><br>Bane</button>
+            <button data-label="Battle Suit" data-dir="F_MED_Battle_Suit" data-idle="idle"><img src="F_MED_Battle_Suit/idle.webp"/><br>Battle Suit</button>
+            <button data-label="Binary" data-dir="F_MED_Binary" data-idle="idle"><img src="F_MED_Binary/idle.webp"/><br>Binary</button>
+            <button data-label="Bistro Monster" data-dir="F_MED_Bistro_Monster" data-idle="idle"><img src="F_MED_Bistro_Monster/idle.webp"/><br>Bistro Monster</button>
+            <button data-label="Black Knight" data-dir="F_MED_Black_Knight" data-idle="idle"><img src="F_MED_Black_Knight/idle.webp"/><br>Black Knight</button>
+            <button data-label="Buffet" data-dir="F_MED_Buffet" data-idle="idle"><img src="F_MED_Buffet/idle.webp"/><br>Buffet</button>
+            <button data-label="Bunny Fashion" data-dir="F_MED_Bunny_Fashion" data-idle="idle"><img src="F_MED_Bunny_Fashion/idle.webp"/><br>Bunny Fashion</button>
+            <button data-label="Candy Summer" data-dir="F_MED_Candy_Summer" data-idle="idle"><img src="F_MED_Candy_Summer/idle.webp"/><br>Candy Summer</button>
+            <button data-label="Cavalry" data-dir="F_MED_Cavalry" data-idle="idle"><img src="F_MED_Cavalry/idle.webp"/><br>Cavalry</button>
+            <button data-label="Cherry" data-dir="F_MED_Cherry" data-idle="idle"><img src="F_MED_Cherry/idle.webp"/><br>Cherry</button>
+            <button data-label="Critter Streak" data-dir="F_MED_Critter_Streak" data-idle="idle"><img src="F_MED_Critter_Streak/idle.webp"/><br>Critter Streak</button>
+            <button data-label="Crush" data-dir="F_MED_Crush" data-idle="idle"><img src="F_MED_Crush/idle.webp"/><br>Crush</button>
+            <button data-label="Cyber Armor" data-dir="F_MED_Cyber_Armor" data-idle="idle"><img src="F_MED_Cyber_Armor/idle.webp"/><br>Cyber Armor</button>
+            <button data-label="Dark Ninja Purple" data-dir="F_MED_Dark_Ninja_Purple" data-idle="idle"><img src="F_MED_Dark_Ninja_Purple/idle.webp"/><br>Dark Ninja Purple</button>
+            <button data-label="Dino Collector" data-dir="F_MED_Dino_Collector" data-idle="idle"><img src="F_MED_Dino_Collector/idle.webp"/><br>Dino Collector</button>
+            <button data-label="Division Jacket" data-dir="F_MED_Division_Jacket" data-idle="idle"><img src="F_MED_Division_Jacket/idle.webp"/><br>Division Jacket</button>
+            <button data-label="Donut Dish" data-dir="F_MED_Donut_Dish" data-idle="idle"><img src="F_MED_Donut_Dish/idle.webp"/><br>Donut Dish</button>
+            <button data-label="Donut Plate" data-dir="F_MED_Donut_Plate" data-idle="idle"><img src="F_MED_Donut_Plate/idle.webp"/><br>Donut Plate</button>
+            <button data-label="Eternity Crown" data-dir="F_MED_Eternity_Crown" data-idle="idle"><img src="F_MED_Eternity_Crown/idle.webp"/><br>Eternity Crown</button>
+            <button data-label="Eternity Elite" data-dir="F_MED_Eternity_Elite" data-idle="idle"><img src="F_MED_Eternity_Elite/idle.webp"/><br>Eternity Elite</button>
+            <button data-label="Faux" data-dir="F_MED_Faux" data-idle="idle"><img src="F_MED_Faux/idle.webp"/><br>Faux</button>
+            <button data-label="Flower Skeleton" data-dir="F_MED_Flower_Skeleton" data-idle="idle"><img src="F_MED_Flower_Skeleton/idle.webp"/><br>Flower Skeleton</button>
+            <button data-label="Fuzzy Bear T E D D Y" data-dir="F_MED_FuzzyBearTEDDY" data-idle="idle"><img src="F_MED_FuzzyBearTEDDY/idle.webp"/><br>Fuzzy Bear T E D D Y</button>
+            <button data-label="Galactic" data-dir="F_MED_Galactic" data-idle="idle"><img src="F_MED_Galactic/idle.webp"/><br>Galactic</button>
+            <button data-label="Galileo Rocket" data-dir="F_MED_Galileo_Rocket" data-idle="idle"><img src="F_MED_Galileo_Rocket/idle.webp"/><br>Galileo Rocket</button>
+            <button data-label="Galileo Zeppelin" data-dir="F_MED_Galileo_Zeppelin" data-idle="idle"><img src="F_MED_Galileo_Zeppelin/idle.webp"/><br>Galileo Zeppelin</button>
+            <button data-label="Ghost Hunter" data-dir="F_MED_Ghost_Hunter" data-idle="idle"><img src="F_MED_Ghost_Hunter/idle.webp"/><br>Ghost Hunter</button>
+            <button data-label="Gimmick" data-dir="F_MED_Gimmick" data-idle="idle"><img src="F_MED_Gimmick/idle.webp"/><br>Gimmick</button>
+            <button data-label="Graffiti Assassin" data-dir="F_MED_Graffiti_Assassin" data-idle="idle"><img src="F_MED_Graffiti_Assassin/idle.webp"/><br>Graffiti Assassin</button>
+            <button data-label="Hazmat" data-dir="F_MED_Hazmat" data-idle="idle"><img src="F_MED_Hazmat/idle.webp"/><br>Hazmat</button>
+            <button data-label="Heart Breaker" data-dir="F_MED_Heart_Breaker" data-idle="idle"><img src="F_MED_Heart_Breaker/idle.webp"/><br>Heart Breaker</button>
+            <button data-label="High Tower Mango" data-dir="F_MED_HighTower_Mango" data-idle="idle"><img src="F_MED_HighTower_Mango/idle.webp"/><br>High Tower Mango</button>
+            <button data-label="High Tower Squash" data-dir="F_MED_HighTower_Squash" data-idle="idle"><img src="F_MED_HighTower_Squash/idle.webp"/><br>High Tower Squash</button>
+            <button data-label="Hitman" data-dir="F_MED_Hitman" data-idle="idle"><img src="F_MED_Hitman/idle.webp"/><br>Hitman</button>
+            <button data-label="Horned Mask" data-dir="F_MED_HornedMask" data-idle="idle"><img src="F_MED_HornedMask/idle.webp"/><br>Horned Mask</button>
+            <button data-label="Island Nomad" data-dir="F_MED_Island_Nomad" data-idle="idle"><img src="F_MED_Island_Nomad/idle.webp"/><br>Island Nomad</button>
+            <button data-label="Keen" data-dir="F_MED_Keen" data-idle="idle"><img src="F_MED_Keen/idle.webp"/><br>Keen</button>
+            <button data-label="Kepler" data-dir="F_MED_Kepler" data-idle="idle"><img src="F_MED_Kepler/idle.webp"/><br>Kepler</button>
+            <button data-label="Lady Atlantis" data-dir="F_MED_Lady_Atlantis" data-idle="idle"><img src="F_MED_Lady_Atlantis/idle.webp"/><br>Lady Atlantis</button>
+            <button data-label="Lemon Lime" data-dir="F_MED_Lemon_Lime" data-idle="idle"><img src="F_MED_Lemon_Lime/idle.webp"/><br>Lemon Lime</button>
+            <button data-label="Lollipop" data-dir="F_MED_Lollipop" data-idle="idle"><img src="F_MED_Lollipop/idle.webp"/><br>Lollipop</button>
+            <button data-label="Loofah" data-dir="F_MED_Loofah" data-idle="idle"><img src="F_MED_Loofah/idle.webp"/><br>Loofah</button>
+            <button data-label="Love Queen" data-dir="F_MED_Love_Queen" data-idle="idle"><img src="F_MED_Love_Queen/idle.webp"/><br>Love Queen</button>
+            <button data-label="Mad Commander Dark" data-dir="F_MED_Mad_Commander_Dark" data-idle="idle"><img src="F_MED_Mad_Commander_Dark/idle.webp"/><br>Mad Commander Dark</button>
+            <button data-label="Marauder Elite" data-dir="F_MED_Marauder_Elite" data-idle="idle"><img src="F_MED_Marauder_Elite/idle.webp"/><br>Marauder Elite</button>
+            <button data-label="Meteorwomen" data-dir="F_MED_Meteorwomen" data-idle="idle"><img src="F_MED_Meteorwomen/idle.webp"/><br>Meteorwomen</button>
+            <button data-label="Monarch" data-dir="F_MED_Monarch" data-idle="idle"><img src="F_MED_Monarch/idle.webp"/><br>Monarch</button>
+            <button data-label="Motorcyclist" data-dir="F_MED_Motorcyclist" data-idle="idle"><img src="F_MED_Motorcyclist/idle.webp"/><br>Motorcyclist</button>
+            <button data-label="Musician" data-dir="F_MED_Musician" data-idle="idle"><img src="F_MED_Musician/idle.webp"/><br>Musician</button>
+            <button data-label="Nautilus" data-dir="F_MED_Nautilus" data-idle="idle"><img src="F_MED_Nautilus/idle.webp"/><br>Nautilus</button>
+            <button data-label="Neon" data-dir="F_MED_Neon" data-idle="idle"><img src="F_MED_Neon/idle.webp"/><br>Neon</button>
+            <button data-label="Network" data-dir="F_MED_Network" data-idle="idle"><img src="F_MED_Network/idle.webp"/><br>Network</button>
+            <button data-label="Night Capsule" data-dir="F_MED_Night_Capsule" data-idle="idle"><img src="F_MED_Night_Capsule/idle.webp"/><br>Night Capsule</button>
+            <button data-label="Nutcracker" data-dir="F_MED_Nutcracker" data-idle="idle"><img src="F_MED_Nutcracker/idle.webp"/><br>Nutcracker</button>
+            <button data-label="Obsidian" data-dir="F_MED_Obsidian" data-idle="idle"><img src="F_MED_Obsidian/idle.webp"/><br>Obsidian</button>
+            <button data-label="Parcel Petal" data-dir="F_MED_Parcel_Petal" data-idle="idle"><img src="F_MED_Parcel_Petal/idle.webp"/><br>Parcel Petal</button>
+            <button data-label="M Large Buff Cat" data-dir="M_Large_Buff_Cat" data-idle="idle"><img src="M_Large_Buff_Cat/idle.webp"/><br>M Large Buff Cat</button>
+            <button data-label="Big Chuggus" data-dir="M_LRG_Big_Chuggus" data-idle="idle"><img src="M_LRG_Big_Chuggus/idle.webp"/><br>Big Chuggus</button>
+            <button data-label="Broccoli Green" data-dir="M_LRG_Broccoli_Green" data-idle="idle"><img src="M_LRG_Broccoli_Green/idle.webp"/><br>Broccoli Green</button>
+            <button data-label="Buff Llama" data-dir="M_LRG_Buff_Llama" data-idle="idle"><img src="M_LRG_Buff_Llama/idle.webp"/><br>Buff Llama</button>
+            <button data-label="Chicken Warrior" data-dir="M_LRG_Chicken_Warrior" data-idle="idle"><img src="M_LRG_Chicken_Warrior/idle.webp"/><br>Chicken Warrior</button>
+            <button data-label="Comet" data-dir="M_LRG_Comet" data-idle="idle"><img src="M_LRG_Comet/idle.webp"/><br>Comet</button>
+            <button data-label="Invader" data-dir="M_LRG_Invader" data-idle="idle"><img src="M_LRG_Invader/idle.webp"/><br>Invader</button>
+            <button data-label="Menace" data-dir="M_LRG_Menace" data-idle="idle"><img src="M_LRG_Menace/idle.webp"/><br>Menace</button>
+            <button data-label="Meteor Man Remix" data-dir="M_LRG_Meteor_Man_Remix" data-idle="idle"><img src="M_LRG_Meteor_Man_Remix/idle.webp"/><br>Meteor Man Remix</button>
+            <button data-label="Snowman Fashion" data-dir="M_LRG_Snowman_Fashion" data-idle="idle"><img src="M_LRG_Snowman_Fashion/idle.webp"/><br>Snowman Fashion</button>
+            <button data-label="Tactical Bear" data-dir="M_LRG_Tactical_Bear" data-idle="idle"><img src="M_LRG_Tactical_Bear/idle.webp"/><br>Tactical Bear</button>
+            <button data-label="Agent Ace" data-dir="M_MED_Agent_Ace" data-idle="idle"><img src="M_MED_Agent_Ace/idle.webp"/><br>Agent Ace</button>
+            <button data-label="Alien Robot" data-dir="M_MED_Alien_Robot" data-idle="idle"><img src="M_MED_Alien_Robot/idle.webp"/><br>Alien Robot</button>
+            <button data-label="Antique Pal" data-dir="M_MED_Antique_Pal" data-idle="idle"><img src="M_MED_Antique_Pal/idle.webp"/><br>Antique Pal</button>
+            <button data-label="Assassin X" data-dir="M_MED_Assassin_X" data-idle="idle"><img src="M_MED_Assassin_X/idle.webp"/><br>Assassin X</button>
+            <button data-label="Assemble K" data-dir="M_MED_Assemble_K" data-idle="idle"><img src="M_MED_Assemble_K/idle.webp"/><br>Assemble K</button>
+            <button data-label="Assemble L" data-dir="M_MED_Assemble_L" data-idle="idle"><img src="M_MED_Assemble_L/idle.webp"/><br>Assemble L</button>
+            <button data-label="Assemble P" data-dir="M_MED_Assemble_P" data-idle="idle"><img src="M_MED_Assemble_P/idle.webp"/><br>Assemble P</button>
+            <button data-label="Axl" data-dir="M_MED_Axl" data-idle="idle"><img src="M_MED_Axl/idle.webp"/><br>Axl</button>
+            <button data-label="Aztec" data-dir="M_MED_Aztec" data-idle="idle"><img src="M_MED_Aztec/idle.webp"/><br>Aztec</button>
+            <button data-label="Backspin" data-dir="M_MED_Backspin" data-idle="idle"><img src="M_MED_Backspin/idle.webp"/><br>Backspin</button>
+            <button data-label="Bad Egg" data-dir="M_MED_Bad_Egg" data-idle="idle"><img src="M_MED_Bad_Egg/idle.webp"/><br>Bad Egg</button>
+            <button data-label="Banana" data-dir="M_MED_Banana" data-idle="idle"><img src="M_MED_Banana/idle.webp"/><br>Banana</button>
+            <button data-label="Banana Agent" data-dir="M_MED_Banana_Agent" data-idle="idle"><img src="M_MED_Banana_Agent/idle.webp"/><br>Banana Agent</button>
+            <button data-label="Banana Leader" data-dir="M_MED_Banana_Leader" data-idle="idle"><img src="M_MED_Banana_Leader/idle.webp"/><br>Banana Leader</button>
+            <button data-label="Barbeque Larry" data-dir="M_MED_BarbequeLarry" data-idle="idle"><img src="M_MED_BarbequeLarry/idle.webp"/><br>Barbeque Larry</button>
+            <button data-label="Beacon" data-dir="M_MED_Beacon" data-idle="idle"><img src="M_MED_Beacon/idle.webp"/><br>Beacon</button>
+            <button data-label="Bitten Head" data-dir="M_MED_BittenHead" data-idle="idle"><img src="M_MED_BittenHead/idle.webp"/><br>Bitten Head</button>
+            <button data-label="Black Monday Houston" data-dir="M_MED_BlackMonday_Houston" data-idle="idle"><img src="M_MED_BlackMonday_Houston/idle.webp"/><br>Black Monday Houston</button>
+            <button data-label="Black Monday Kansas" data-dir="M_MED_BlackMonday_Kansas" data-idle="idle"><img src="M_MED_BlackMonday_Kansas/idle.webp"/><br>Black Monday Kansas</button>
+            <button data-label="Broccoli" data-dir="M_MED_Broccoli" data-idle="idle"><img src="M_MED_Broccoli/idle.webp"/><br>Broccoli</button>
+            <button data-label="Butter Jack" data-dir="M_MED_Butter_Jack" data-idle="idle"><img src="M_MED_Butter_Jack/idle.webp"/><br>Butter Jack</button>
+            <button data-label="Candy Apple" data-dir="M_MED_Candy_Apple" data-idle="idle"><img src="M_MED_Candy_Apple/idle.webp"/><br>Candy Apple</button>
+            <button data-label="Cashier" data-dir="M_MED_Cashier" data-idle="idle"><img src="M_MED_Cashier/idle.webp"/><br>Cashier</button>
+            <button data-label="Caveman" data-dir="M_MED_Caveman" data-idle="idle"><img src="M_MED_Caveman/idle.webp"/><br>Caveman</button>
+            <button data-label="Cavern Armored" data-dir="M_MED_Cavern_Armored" data-idle="idle"><img src="M_MED_Cavern_Armored/idle.webp"/><br>Cavern Armored</button>
+            <button data-label="Columbus" data-dir="M_MED_Columbus" data-idle="idle"><img src="M_MED_Columbus/idle.webp"/><br>Columbus</button>
+            <button data-label="Commando Dark Paintballer" data-dir="M_MED_Commando_DarkPaintballer" data-idle="idle"><img src="M_MED_Commando_DarkPaintballer/idle.webp"/><br>Commando Dark Paintballer</button>
+            <button data-label="Convoy Tarantula" data-dir="M_MED_Convoy_Tarantula" data-idle="idle"><img src="M_MED_Convoy_Tarantula/idle.webp"/><br>Convoy Tarantula</button>
+
+        </div>
+        <footer></footer>
+        <div id="tools"><div>
+            <span class="optionLabel">Background:</span>
+            <input type="radio" name="color" id="colorWhite"/>
+            <label for="colorWhite" data-bg="#FFFFFF" data-fg="#000000">White</label>
+            <input type="radio" name="color" id="colorWhitesmoke" checked/>
+            <label for="colorWhitesmoke" data-bg="#F5F5F5" data-fg="#000000">Whitesmoke</label>
+            <input type="radio" name="color" id="colorGray75"/>
+            <label for="colorGray75" data-bg="#BFBFBF" data-fg="#000000">75% Gray</label>
+            <input type="radio" name="color" id="colorGray50"/>
+            <label for="colorGray50" data-bg="#808080" data-fg="#FFFFFF">50% Gray</label>
+            <input type="radio" name="color" id="colorGray25"/>
+            <label for="colorGray25" data-bg="#404040" data-fg="#FFFFFF">25% Gray</label>
+            <input type="radio" name="color" id="colorBlack"/>
+            <label for="colorBlack" data-bg="#000000" data-fg="#FFFFFF">Black</label>
+        </div></div>
+    </body>
+</html>

@@ -1,0 +1,1373 @@
+{
+    "avatarName": "Banana Agent",
+    "verticesToDelete": [],
+    "materialTextureOverrides": {},
+    "materialValueOverrides": {},
+    "poseOverrides": {},
+    "animationTypes": {
+        "dance": {
+            "animationsMax": 1,
+            "animations": [
+                "rickRoll"
+            ]
+        }
+    },
+    "animationQualityFDefault": 1.0,
+    "animationOverrides": {
+        "idle": {
+            "idle": {
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.17346439932948243
+                ]
+            }
+        }
+    },
+    "animationsGenerated": {
+        "idle": {
+            "idle": {
+                "isLoop": true,
+                "sourceNames": [
+                    "Idle"
+                ],
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.17346439932948243
+                ],
+                "probability": 1000,
+                "baseQualityF": 2.5,
+                "enabled": true,
+                "preferred": false,
+                "fileName": "idle",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 2.5,
+                "fps": 15,
+                "frameCount": 1,
+                "duration": 0.06666666666666667
+            },
+            "confused": {
+                "sourceNames": [
+                    "Emote_Confused_CMM"
+                ],
+                "probability": 10,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "idle_confused",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 105,
+                "duration": 7.0
+            },
+            "dustOffHands": {
+                "sourceNames": [
+                    "Emote_DustingOffHands"
+                ],
+                "probability": 5,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "idle_dustOffHands",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 50,
+                "duration": 3.3333333333333335
+            },
+            "dustOffshoulders": {
+                "sourceNames": [
+                    "Emote_DustOffShoulders_CMM"
+                ],
+                "probability": 5,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "idle_dustOffshoulders",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 57,
+                "duration": 3.8
+            },
+            "iDontKnow": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_IDontKnow_CMM"
+                ],
+                "probability": 5,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "idle_iDontKnow",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "moveleft": {
+            "moveleft": {
+                "isLoop": true,
+                "sourceNames": [
+                    "Walk_N_NoWeapon"
+                ],
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    -90.0
+                ],
+                "walkSpeed": 125,
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "fileName": "moveleft",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 15,
+                "duration": 1.0
+            },
+            "alt1": {
+                "enabled": false,
+                "isLoop": true,
+                "sourceNames": [
+                    "Emote_Fancy_Workout_Traverse_CMF"
+                ],
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    -90.0
+                ],
+                "walkSpeed": 125,
+                "probability": 10,
+                "preferred": false,
+                "fileName": "moveleft_alt1",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "moveright": {
+            "moveright": {
+                "isLoop": true,
+                "sourceNames": [
+                    "Walk_N_NoWeapon"
+                ],
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    90.0
+                ],
+                "walkSpeed": 125,
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "fileName": "moveright",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 15,
+                "duration": 1.0
+            },
+            "alt1": {
+                "enabled": false,
+                "isLoop": true,
+                "sourceNames": [
+                    "Emote_Fancy_Workout_Traverse_CMF"
+                ],
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    90.0
+                ],
+                "walkSpeed": 125,
+                "probability": 10,
+                "preferred": false,
+                "fileName": "moveright_alt1",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "wave": {
+            "short": {
+                "enabled": false,
+                "sourceNames": [
+                    "PapayaComms_Wave_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_short",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "caller": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Caller_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_caller",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "iSeeYa": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Assassin_Salute_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_iSeeYa",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "happyWave": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_HappyWave_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_happyWave",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "salute": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Salute_Male"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_salute",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "saluteWave": {
+                "sourceNames": [
+                    "Emote_Wave2_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_saluteWave",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 28,
+                "duration": 1.8666666666666667
+            },
+            "bow": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_StageBow_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "wave_bow",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "dance": {
+            "cowboy": {
+                "sourceNames": [
+                    "CowboyDance_CMF"
+                ],
+                "probability": 500,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_cowboy",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "breakDance1": {
+                "sourceNames": [
+                    "Emote_Break_Dance_CMM"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_breakDance1",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "breakDance2": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Dance_Breakdance"
+                ],
+                "probability": 250,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_breakDance2",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "breakfast": {
+                "sourceNames": [
+                    "Emote_BreakfastCoffeeDance_CMM"
+                ],
+                "probability": 500,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_breakfast",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "candy": {
+                "sourceNames": [
+                    "Emote_Candy_Dance_CMF"
+                ],
+                "probability": 500,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_candy",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "charleston": {
+                "sourceNames": [
+                    "Emote_Charleston"
+                ],
+                "probability": 500,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_charleston",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "flamenco": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Dance_Flamenco_Intro_CMM",
+                    "Emote_Dance_Flamenco_Loop_CMM"
+                ],
+                "probability": 500,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_flamenco",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "disco": {
+                "sourceNames": [
+                    "Emote_DG_Disco"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_disco",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "kpop": {
+                "sourceNames": [
+                    "Kpop_Dance_04_CMM"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_kpop",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "grooving": {
+                "sourceNames": [
+                    "Emote_Grooving_CMM"
+                ],
+                "probability": 250,
+                "baseQualityF": 0.75,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_grooving",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 0.75
+            },
+            "downward": {
+                "sourceNames": [
+                    "Emote_Downward_CMM_test"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_downward",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "slav": {
+                "sourceNames": [
+                    "Emote_EasternBloc_Start_CMM",
+                    "Emote_EasternBloc_CMM"
+                ],
+                "probability": 250,
+                "baseQualityF": 0.75,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_slav",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 0.75
+            },
+            "funktime": {
+                "sourceNames": [
+                    "Emote_Funktime_CMM"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_funktime",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "hipHop1": {
+                "sourceNames": [
+                    "Emote_Gabby_HipHop_CMF"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_hipHop1",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "hipHop2": {
+                "sourceNames": [
+                    "Emote_Hip_Hop_CMM"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_hipHop2",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "intensity": {
+                "sourceNames": [
+                    "Emote_Intensity_Start",
+                    "Emote_Intensity_Loop"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_intensity",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "irish": {
+                "sourceNames": [
+                    "Emote_IrishJig_Start",
+                    "Emote_IrishJig"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_irish",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "wildHands": {
+                "sourceNames": [
+                    "Emote_Mask_Off_Intro_CMM_30fps",
+                    "Emote_Mask_Off_Loop_CMM_30fps"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_wildHands",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "rickRoll": {
+                "baseQualityF": 0.95,
+                "sourceNames": [
+                    "Emote_NeverGonna_CMM"
+                ],
+                "probability": 250,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_rickRoll",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 0.95,
+                "fps": 15,
+                "frameCount": 151,
+                "duration": 10.066666666666666
+            },
+            "playerEleven": {
+                "sourceNames": [
+                    "Emote_PlayerEleven_CMM"
+                ],
+                "probability": 250,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_playerEleven",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "bavaria": {
+                "sourceNames": [
+                    "Emote_ThighSlapper_CMM"
+                ],
+                "probability": 500,
+                "baseQualityF": 0.75,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_bavaria",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 0.75
+            },
+            "twist": {
+                "sourceNames": [
+                    "TwistEternity_Teo_Intro_CMM",
+                    "TwistEternity_Teo_CMM"
+                ],
+                "probability": 250,
+                "baseQualityF": 0.75,
+                "enabled": false,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "dance_twist",
+                "avatarQualityF": 1.0,
+                "finalQualityF": 0.75
+            }
+        },
+        "cheer": {
+            "cyclone": {
+                "sourceNames": [
+                    "Cyclone_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_cyclone",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 27,
+                "duration": 1.8
+            },
+            "trophy": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Trophy_Celebration_Loop_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_trophy",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "touchdown": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Touchdown_Dance_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_touchdown",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "bhangra": {
+                "enabled": false,
+                "sourceNames": [
+                    "emote_bhangra_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_bhangra",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "backspin": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Backspin_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_backspin",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "duck": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_DuckTeacher_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_duck",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "lightHaka": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Showstopper_Dance_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_lightHaka",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "papaya": {
+                "enabled": false,
+                "sourceNames": [
+                    "PapayaComms_Cheer_CMM"
+                ],
+                "probability": 10,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cheer_papaya",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "deny": {
+            "headShake": {
+                "enabled": false,
+                "sourceNames": [
+                    "PapayaComms_ShakeHead_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "deny_headShake",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "strong": {
+                "sourceNames": [
+                    "Emote_Disagree_Male"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "deny_strong",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 37,
+                "duration": 2.466666666666667
+            },
+            "strongSlooow": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_BadMood_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "deny_strongSlooow",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "finger": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_NotToday_CMM"
+                ],
+                "probability": 250,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "deny_finger",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "thumbDown": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_ThumbsDown_CMM"
+                ],
+                "probability": 250,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "deny_thumbDown",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "agree": {
+            "headNod": {
+                "sourceNames": [
+                    "PapayaComms_NodHead_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "agree_headNod",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 23,
+                "duration": 1.5333333333333334
+            },
+            "long": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Cashiers_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "agree_long",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "thumbUp": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_ThumbsUp_CMM"
+                ],
+                "probability": 100,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "agree_thumbUp",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "kiss": {
+            "spinLevitate": {
+                "sourceNames": [
+                    "Emote_BuffetMoment_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "kiss_spinLevitate",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 82,
+                "duration": 5.466666666666667
+            },
+            "iHeartYou": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_IHeartYou_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "kiss_iHeartYou",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "laugh": {
+            "laugh": {
+                "sourceNames": [
+                    "Emote_Laugh_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "laugh",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 138,
+                "duration": 9.2
+            }
+        },
+        "angry": {
+            "why": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Chuckle_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "angry_why",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "stomp": {
+                "sourceNames": [
+                    "Emote_TemperTantrum_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "angry_stomp",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 48,
+                "duration": 3.2
+            }
+        },
+        "cry": {
+            "cry": {
+                "sourceNames": [
+                    "Emote_Cry_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "cry",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 136,
+                "duration": 9.066666666666666
+            }
+        },
+        "clap": {
+            "clap": {
+                "sourceNames": [
+                    "PapayaComms_Clap_CMM",
+                    "PapayaComms_Clap_CMM",
+                    "PapayaComms_Clap_CMM"
+                ],
+                "probability": 1000,
+                "enabled": true,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "clap",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0,
+                "fps": 15,
+                "frameCount": 23,
+                "duration": 1.5333333333333334
+            },
+            "fast": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Golfer_Clap_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "clap_fast",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            },
+            "slow": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_golfclap_Male"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "clap_slow",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "facepalm": {
+            "facepalm": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Facepalm"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "facepalm",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "chicken": {
+            "chicken": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_Chicken_Moves_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "chicken",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "worshipBow": {
+            "worshipBow": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_MyIdol_Intro_CMM",
+                    "Emote_MyIdol_Loop_CMM",
+                    "Emote_MyIdol_Loop_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "worshipBow",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "balancingMeditation": {
+            "balancingMeditation": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_DivinePose_CMM_Intro",
+                    "Emote_DivinePose_CMM_Loop"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "balancingMeditation",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "taiChi": {
+            "taiChi": {
+                "enabled": false,
+                "sourceNames": [
+                    "TaiChi_Intro_CMM",
+                    "TaiChi_Loop_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "taiChi",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        },
+        "lotusLevitate": {
+            "lotusLevitate": {
+                "enabled": false,
+                "sourceNames": [
+                    "Emote_CloudFloat_CMM"
+                ],
+                "probability": 1000,
+                "preferred": false,
+                "isLoop": false,
+                "avatarRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "fileName": "lotusLevitate",
+                "baseQualityF": 1.0,
+                "avatarQualityF": 1.0,
+                "finalQualityF": 1.0
+            }
+        }
+    }
+}
